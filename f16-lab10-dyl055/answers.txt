@@ -1,0 +1,101 @@
+Lab 10
+--------------------------------------
+Dylan Lu 27949156 github: dyl055
+Eugene Shen 37304152 github: eqys
+
+Bad Thread Safety Arguments
+
+1) This argument is invalid because the SimpleBuffer is not immutable. The string text
+   is immutable but because the representation of SimpleBuffer can be changed. EditBuffer,
+   the interface that SimpleBuffer is implementing, has the text as mutable, and therefore
+   the Thread safety argument is wrong.
+   
+2)	public void insert(int pos, String s){
+   		String begin = text.substring(0,pos);
+    	String end = text.substring(pos);
+    	text = begin + s + end;
+    }
+
+3) The keyword final on a collection only finalizes the reference to the collection, not the
+   objects that are in the collection. Therefore if someone were to have a reference to a single
+   node, they would be able to change it. The thread safety argument is both wrong in that the Graph
+   is mutable and is not threadsafe.
+   
+4) public void deleteNode(Node node1){
+		if(nodes.contains(node1)){
+			nodes.remove(node1);
+		}
+   }
+
+Locks
+
+5) Thread B would wait until Thread A is finished. Thread A will not change and keep on doing whatever
+   it is doing. Once Thread A finishes, Thread B can use the lock.
+   
+6) A thread that tries to acquire a lock it already owns will be able to access the lock and do whateveer
+   it wants to do
+   
+7) The lock will be released. Upon further searching on StackOverflow:
+   http://stackoverflow.com/questions/2019339/side-effects-of-throwing-an-exception-inside-a-synchronized-clause
+   A lock is released when: 
+				i) execution of block is completed normally
+  				ii) execution of block is completed abruptly
+
+Of painters and painting
+
+8) picking and painting? Yes, palette an brush are different objects
+   painting and mixing? Yes, brush and painter are different objects
+   mixing and framing? No, painter is synchronized with both methods
+ 
+9) picking? Yes
+   painting? No
+   mixing? Yes
+   framing? Yes
+   
+10) picking? Yes
+	painting? Yes
+	mixing? Yes
+	framing? Yes
+
+11) Yes they can be painting simultaneously if they have distinct brushes, even if they are equal.
+
+Deadlock
+
+12) Acquiring locks is sufficient because the only way a deadlock will form is if one person tries
+	to friend a person, and immediately after, that person tries to defriend the other person. If
+	we order the acquiring of the locks, we are able to ensure that one statement gets executed after
+	another.
+
+13) Yes it is a necessary condition to prevent deadlocks
+
+14) We need to be very strict with it. We need a very ordered system to ensure no deadlocking would take place.
+	For example, if we were to order the locking by the wizard's name, if two wizards had the same name, there
+	still might be a deadlock.
+	
+15) Painter{
+		List<Brush> brushes = Collections.synchronizedList();
+		public void paint(Brush brush){
+			synchronized(brushes){
+				synchronized(brush){
+				----paint----
+				}
+			}
+		}
+	}
+	
+Coarse-grained locking
+
+16) If we implement a coarse-grained lock, we will be locking much more than we need to lock. In terms of 
+	synchronization, we will be limiting the amount of threads that can access different things, possibly
+	making our concurrent program unnecessarily less efficient.
+		
+17) rep invariant: Wizard is in only one Castle
+	specifications: only one wizard in a castle can be used at one time
+	
+18) I think you are able to cross-castle friend, you just need access to both of the locks of the castles.
+
+19) avoid having to use these locking disciplines? other ideas - don't use concurrent programming.
+
+End of Discussion Questions.
+
+  

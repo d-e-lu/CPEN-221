@@ -1,0 +1,26 @@
+Q1:What are the representation invariants for the three possible representations
+   of LineArt that we saw earlier?
+	1)
+	-List of Segments
+	-Segment has x1, y1, x2, y2, where (x1, y1) is not (x2, y2)
+	2)
+	-List of PenCmd
+	-New Command must not be the previous command (Penup, Penup doesn't make sense)
+	-PenCmd must be either Penup or Pendown
+	-GoToPoint has x and y component
+	3)
+	-List of Components
+	-Components have List of Points
+	-Points have x, y
+Q2: What are the representation invariants of git blobs, trees and commits?
+	1) blob
+	-Array of bytes must be passed with not null values
+	2) trees
+	-contains lists of trees an blobs
+	3) commits
+	-contains a String, date, tree, String, commit
+	-String is the name of the author
+	-Date is the date added
+	-tree is the Git Tree
+	-String is a message
+	-commit is the Git Commit

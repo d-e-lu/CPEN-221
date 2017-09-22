@@ -1,0 +1,11 @@
+MIN=5
+MUL=2
+VAR=1
+WHITESPACE=7
+NUM=6
+POW=3
+PLUS=4
+'^'=3
+'-'=5
+'+'=4
+'*'=2

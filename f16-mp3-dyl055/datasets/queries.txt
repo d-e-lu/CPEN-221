@@ -1,0 +1,8 @@
+commonInfluencers 10416 37722200 ?
+commonInfluencers 1747381 8215402 ?
+commonInfluencers 16728499 84849147 ?
+numRetweets 10416 37722200  ?
+numRetweets 16728499 84849147  ?
+numRetweets 1747381 8215402  ?
+
+

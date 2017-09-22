@@ -1,0 +1,69 @@
+Lab2.txt
+===
+
+Student ID: 27949156
+Name: Dylan Lu
+
+## Code style and smells
+What is good, bad, confusing about the code? Focus only on `Main.java` and `UBCPoet.java`.
+	
+	good
+	-Throws IOException when handling files
+	-Has only two class variables and no global variables. Everything else is local
+	-All of the functions have return types
+	
+	
+	bad
+	-No specifications on any of the functions
+	-No commenting on how any of the code works
+	-There is very little use of whitespacing to make code easier to read
+	-There are a few repeated lines in some of the functions, namely hyponyms,
+	 hypernyms, and verse have the same first few lines. This can easily be 
+	 put into a function of itself
+	-methods are all one word long without much clarity
+	 
+	confusing
+	-didn't know what most of the code meant
+	-Some of the methods are public, some of them are private. But he only 
+	 method being accessed outside of the class is verse
+	
+
+## The First-Line Bug
+
+	Using the Debugger in Eclipse, I found the source of the problem was coming from the
+	eloquent method. In UBCPoet.java the eloquent method is always creating an adjective 
+	and returning the the string in front of the hyponyms.
+	
+	To solve this problem you could:
+	-add a boolean to control whether you want to add the adjective
+	-pass in the words.size() into the eloquent method and only add
+	 an adjective if the words.size() != 0
+
+
+
+## The Out-of-Bounds Bug
+
+	Using the poem "gun"
+	The alliterations method takes a String named word. When creating the head and foot of 
+	the word, it uses substrings to do so. The head substring assumes that the word string
+	has at least three characters in it. However, when the word got passed, the string
+	must have had 2 or less characters. That is why we got exception
+	java.lang.StringIndexOutOfBoundsException: String index out of range: 2
+	
+	To solve this problem you could:
+	-at the beginning return the word back if the length is less than two
+	-check in eloquent to see if the word is greater than two and call the alliterate function
+	 based on that
+
+## The Illegal Argument Bug
+
+	The sense method uses the function getIndexWord from the IDictionary dict. In which
+	that method creates a new instance of an IIndexWordID with the passed String. In 
+	the constructor of the IIndexWordID class it throws an IllegalArgumentException if 
+	the String that was passed is length 0
+
+	To solve this problem you could:
+	-change the if statement in the IndexWordID constructor to if lemma == null 
+	(not sure whether allowed to change that or not)
+	-in the sense method, check to see if word.equals("") and return false if it is
+	

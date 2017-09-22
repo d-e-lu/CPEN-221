@@ -1,0 +1,45 @@
+Answers to questions in Lab 3
+
+Stronger and Weaker
+What is the relationship between A and B?
+	1. True
+	2. Weaker
+	3. Weaker
+
+What is the relationship between C and the previous two specs?
+	1. Stronger
+	2. Same as B, stronger than A
+	3. C's specification is weaker than B but about the same as A
+
+What about D?
+	1. They require different implementations, and D requires a
+	   different method of calling, such as the user required to
+	   use try.
+	2. All queries that satisfy C can also be used in D. 
+	   All of D's solutions can not necessarily be used in C.
+
+Discussion
+How easy or difficult was it to agree on specifications for the helper methods?
+	- Alright, just had to find a specification that was specific
+
+How much did you have to revise your specifications during the discussion?
+	- Considered many cases as we went along. Not much revision after
+	  we completed the specifications, but we had several revisions 
+	  during the specifications
+
+Are the specifications declarative, as opposed to operational?
+	- The specifications are more declarative
+	
+Are they designed to make sense on their own?
+	- Yes, which is why we put in extra specifications for each
+	  of the methods
+
+Are they designed to make our code easier to implement, read, and debug?
+	- Easier to read, debug and use because it specifies interesting 
+	  boundary cases. To make this possible, implementation often 
+	  requires more checking to be involved
+	  
+	  
+	  
+	  
+	  

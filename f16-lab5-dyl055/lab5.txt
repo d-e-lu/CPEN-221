@@ -1,0 +1,38 @@
+Lab 5
+Q1: What are the relative merits of these different representations? 
+	Why might we choose one over another?
+	- Rep 1 and Rep 2 take up very little memory to store the lines
+	- Rep 3 allows for a more accurate drawing of what the user wants,
+	  however the 
+	  
+	  
+Q2:
+	There are 3 types of abstract data types blobs, trees and commits. Blobs are
+	files that we can write to, replace, read, and check if it contains a word. 
+	Trees are a collection of trees and blobs. You are able to add blobs and trees,
+	and get trees. Commit stores a tree, and you are able to check messages and 
+	change the author of the commit.
+
+Q3:
+	GitBlob() creator
+	GitBlob.addToFile() mutator
+	GitBlob.replace() mutator
+	GitBlob.getCheckSum() Observer
+	GitBlob.contains() Observer
+	
+	GitTree() creator
+	GitTree.addTree() mutator
+	GitTree.addBlob() mutator
+	GitTree.getTree() producer
+	GitTree.getCheckSum() Observer
+	GitTree.toString() Observer
+	
+	GitCommit() creator
+	GitCommit.ammedMessage() mutator
+	GitCommit.ammedAuthor mutator
+	GitCommit.getCheckSum() observer
+	GitCommit.toString observer
+	
+	In GitTree.getTree(), the function outputs a GitTree which is in reference
+	to the class. Other users of this method may be able to change that GitTree
+	which is not good.

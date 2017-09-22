@@ -1,0 +1,9 @@
+Download the edu.mit.jwi_2.3.X_jdk.jar "development kit" from:
+  http://projects.csail.mit.edu/jwi/
+
+Move edu.mit.jwi_2.3.X_jdk.jar into the `lib` subdirectory.
+
+Download the WordNet-3.0.tar.gz database from:
+  http://wordnet.princeton.edu/wordnet/download/current-version/
+
+Move the `dict` directory into this directory.

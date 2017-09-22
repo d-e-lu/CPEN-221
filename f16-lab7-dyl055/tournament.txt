@@ -1,0 +1,5 @@
+Tournaments is a recursive datatype. Game and Bye are both implementations of Tournament
+but also use Tournament inside their own rep. Therefore it recursively requires an
+implimentation of Tournamnet in order to be successfully implimented.
+
+Tournament = Game(Tournament, Tournament) + bye(player)

@@ -1,0 +1,3 @@
+{"name" : "alice", "gender" : "girl"}
+{"name" : "bob", "gender" : "boy"}
+{"name" : "carl", "gender" : "boy"}
